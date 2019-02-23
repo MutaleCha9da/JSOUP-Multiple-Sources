@@ -1,7 +1,11 @@
 package com.ads.agropay.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -10,7 +14,16 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity
+{
+    private ProgressDialog mProgressDialog;
+    private String url = "http://www.luse.co.zm/";
+    private ArrayList<String> mStockSymbolList = new ArrayList<>();
+    private ArrayList<String> mStockPriceList = new ArrayList<>();
+    private ArrayList<String> mStockChangeList = new ArrayList<>();
 
     TextView textView;
 
@@ -19,13 +32,70 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String url = "<html><head><title>First parse</title></head>"
-                + "<body><p>Parsed HTML into a doc.</p></body></html>";
-        textView = (TextView) findViewById(R.id.tv);
-        Document document = Jsoup.parse(url);
-        Element title = document.select("title").first();
-        String text = document.body().text();
-        String textHref = title.attr("href");
-        String titleText = title.text();
+        new Description().execute();
+    }
+
+    private class Description extends AsyncTask<Void, Void, Void>
+    {
+        String desc;
+
+        @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(MainActivity.this);
+            mProgressDialog.setTitle("Today's Stock Price");
+            mProgressDialog.setMessage("Updating Prices...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params)
+        {
+            try {
+                //Connect to the website
+                String html;
+                Document mStockDocument = Jsoup.connect(url).get();
+                //Using Elements to get the Meta data
+                Elements mElementDataSize = mStockDocument.select("span[class=stoke_none]");
+                //locate the content attribute
+                int mElementSize = mElementDataSize.size();
+
+                for (int i = 0; i < mElementSize; i++)
+                {
+                    Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none]").eq(i);
+                    String mStockSymbol = mElementStockSymbol.text();
+
+                    Elements mElementStockPrice = mStockDocument.select("span[class=stoke_none_price]").eq(i);
+                    String mStockPrice = mElementStockPrice.text();
+
+                    Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change]").eq(i);
+                    String mStockChange = mElementStockChange.text();
+
+                    mStockSymbolList.add(mStockSymbol);
+                    mStockPriceList.add(mStockPrice);
+                    mStockChangeList.add(mStockChange);
+                }
+            }catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void results)
+        {
+            // Set description into TextView
+            RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.act_recyclerview);
+
+            StockDataAdapter mStockDataAdapter = new StockDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            mRecyclerView.setAdapter(mStockDataAdapter);
+
+            mProgressDialog.dismiss();
+        }
     }
 }
