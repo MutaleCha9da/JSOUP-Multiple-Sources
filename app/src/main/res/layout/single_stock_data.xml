@@ -2,31 +2,38 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/activity_horizontal_margin">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="5">
 
         <TextView
             android:id="@+id/row_tv_stock_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            android:textStyle="bold"/>
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_weight="3"/>
 
         <TextView
             android:id="@+id/row_tv_stock_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"/>
+            android:layout_margin="5dp"
+            android:textAlignment="textEnd"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/row_tv_stock_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"/>
+            android:layout_margin="5dp"
+            android:textAlignment="textEnd"
+            android:layout_weight="1"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/stock_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_light_blue_A400"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_stock_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="just trying out things"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_stock_price_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="5dp"
+                android:text="Same here"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/listed_companies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_light_blue_800"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_listed_companies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="just trying out things"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_listed_companies_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="5dp"
+                android:text="Same here"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/brokers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_purple_700"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_brokers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="just trying out things"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_brokers_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="5dp"
+                android:text="Same here"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/news_headlines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_purple_900"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_news_headlines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="just trying out things"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_news_headlines_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="5dp"
+                android:text="Same here"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/exchange_session"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_exchange_session"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="just trying out things"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_exchange_session_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="5dp"
+                android:text="Same here"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
