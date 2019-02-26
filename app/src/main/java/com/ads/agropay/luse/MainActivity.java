@@ -58,19 +58,23 @@ public class MainActivity extends AppCompatActivity
                 String html;
                 Document mStockDocument = Jsoup.connect(url).get();
                 //Using Elements to get the Meta data
-                Elements mElementDataSize = mStockDocument.select("span[class=stoke_none]");
+                Elements mElementDataSize1 = mStockDocument.select("span[class=stoke_none]");
+                Elements mElementDataSize2 = mStockDocument.select("span[class=stoke_up]");
                 //locate the content attribute
-                int mElementSize = mElementDataSize.size();
+                int mElementSize = mElementDataSize1.size() + mElementDataSize2.size();
 
                 for (int i = 0; i < mElementSize; i++)
                 {
-                    Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none]").eq(i);
+                    System.out.println(mElementDataSize2.size());
+                    System.out.println(mElementDataSize1.size());
+                    System.out.println(mElementSize);
+                    Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none], span[class=stoke_up]").eq(i);
                     String mStockSymbol = mElementStockSymbol.text();
 
-                    Elements mElementStockPrice = mStockDocument.select("span[class=stoke_none_price]").eq(i);
+                    Elements mElementStockPrice = mStockDocument.select("span[class=stoke_none_price], span[class=stoke_padd_up]").eq(i);
                     String mStockPrice = mElementStockPrice.text();
 
-                    Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change]").eq(i);
+                    Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change], span[class=stoke_none_up]").eq(i);
                     String mStockChange = mElementStockChange.text();
 
                     mStockSymbolList.add(mStockSymbol);
