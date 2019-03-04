@@ -3,231 +3,330 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:weightSum="5"
+    android:background="@color/bg_color"
+    android:weightSum="6"
     tools:context=".HomeActivity">
 
-    <LinearLayout
-        android:id="@+id/stock_price"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/share_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_light_blue_A400"
-        android:orientation="horizontal"
-        android:paddingLeft="7dp"
-        android:paddingTop="2dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="2dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="7dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_stock_price"
+                android:id="@+id/icon_share_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="just trying out things"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:text="@string/fa_icon_trading"
+                android:textSize="40sp"
+                android:textColor="@color/md_pink_300"
+                android:fontFamily="@font/fa_solid"/>
 
-            <TextView
-                android:id="@+id/tv_stock_price_description"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:paddingTop="5dp"
-                android:text="Same here"
-                android:textSize="12sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_share_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Share Price"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_share_price_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="4dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/listed_companies"
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/daily_commentary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_light_blue_800"
-        android:orientation="horizontal"
-        android:paddingLeft="7dp"
-        android:paddingTop="2dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="2dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="7dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_listed_companies"
+                android:id="@+id/icon_daily_commentary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="just trying out things"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:text="@string/fa_icon_commentary"
+                android:textSize="40sp"
+                android:textColor="@color/md_yellow_500"
+                android:fontFamily="@font/fa_solid"/>
 
-            <TextView
-                android:id="@+id/tv_listed_companies_description"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:paddingTop="5dp"
-                android:text="Same here"
-                android:textSize="12sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_daily_commentary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Daily Commentary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_daily_commentary_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="5dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/brokers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/md_purple_700"
-        android:orientation="horizontal"
-        android:paddingLeft="7dp"
-        android:paddingTop="2dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="2dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="7dp">
-
-            <TextView
-                android:id="@+id/tv_brokers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="just trying out things"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_brokers_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:paddingTop="5dp"
-                android:text="Same here"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
         android:id="@+id/news_headlines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_purple_900"
-        android:orientation="horizontal"
-        android:paddingLeft="7dp"
-        android:paddingTop="2dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="2dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="7dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_news_headlines"
+                android:id="@+id/icon_news_headlines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="just trying out things"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:text="@string/fa_icon_headlines"
+                android:textSize="40sp"
+                android:textColor="@color/md_pink_100"
+                android:fontFamily="@font/fa_solid"/>
 
-            <TextView
-                android:id="@+id/tv_news_headlines_description"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:paddingTop="5dp"
-                android:text="Same here"
-                android:textSize="12sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_news_headlines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="News Headlines"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_news_headlines_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="4dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/exchange_session"
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/investing_for_beginners"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:orientation="horizontal"
-        android:paddingLeft="7dp"
-        android:paddingTop="2dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="2dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="7dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_exchange_session"
+                android:id="@+id/icon_investing_for_beginners"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="just trying out things"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:text="@string/fa_icon_investing"
+                android:textSize="40sp"
+                android:textColor="@color/md_light_green_200"
+                android:fontFamily="@font/fa_solid"/>
 
-            <TextView
-                android:id="@+id/tv_exchange_session_description"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:paddingTop="5dp"
-                android:text="Same here"
-                android:textSize="12sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_investing_for_beginners"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Investing 101"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_investing_for_beginners_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="4dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/brokerage_firms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/icon_brokerage_firms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_icon_brokerage"
+                android:textSize="40sp"
+                android:textColor="@color/md_indigo_400"
+                android:fontFamily="@font/fa_solid"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_brokerage_firms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Brokerage Firms"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_brokerage_firms_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="4dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/listed_companies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/fg_color"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/icon_listed_companies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_icon_listed"
+                android:textSize="40sp"
+                android:textColor="@color/md_red_300"
+                android:fontFamily="@font/fa_solid"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_listed_companies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Listed Companies"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_white_1000"/>
+
+                <TextView
+                    android:id="@+id/tv_listed_companies_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingTop="4dp"
+                    android:text="Same here"
+                    android:textSize="12sp"
+                    android:textColor="@color/md_white_1000"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fa_icon_brokerage">\uf2b5</string>
+    <string name="fa_icon_trading">\uf201</string>
+    <string name="fa_icon_headlines">\uf1ea</string>
+    <string name="fa_icon_listed">\uf0cb</string>
+    <string name="fa_icon_commentary">\uf651</string>
+    <string name="fa_icon_investing">\uf5da</string>
+</resources>

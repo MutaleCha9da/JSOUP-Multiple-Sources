@@ -60,21 +60,22 @@ public class MainActivity extends AppCompatActivity
                 //Using Elements to get the Meta data
                 Elements mElementDataSize1 = mStockDocument.select("span[class=stoke_none]");
                 Elements mElementDataSize2 = mStockDocument.select("span[class=stoke_up]");
+                Elements mElementDataSize3 = mStockDocument.select("span[class=stoke_down]");
                 //locate the content attribute
-                int mElementSize = mElementDataSize1.size() + mElementDataSize2.size();
+                int mElementSize = mElementDataSize1.size() + mElementDataSize2.size() + mElementDataSize3.size();
 
                 for (int i = 0; i < mElementSize; i++)
                 {
                     System.out.println(mElementDataSize2.size());
                     System.out.println(mElementDataSize1.size());
                     System.out.println(mElementSize);
-                    Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none], span[class=stoke_up]").eq(i);
+                    Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none], span[class=stoke_up], span[class=stoke_down]").eq(i);
                     String mStockSymbol = mElementStockSymbol.text();
 
-                    Elements mElementStockPrice = mStockDocument.select("span[class=stoke_none_price], span[class=stoke_padd_up]").eq(i);
+                    Elements mElementStockPrice = mStockDocument.select("span[class=stoke_none_price], span[class=stoke_padd_up], span[class=stoke_down_padd]").eq(i);
                     String mStockPrice = mElementStockPrice.text();
 
-                    Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change], span[class=stoke_none_up]").eq(i);
+                    Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change], span[class=stoke_none_up], span[class=stoke_none_down]").eq(i);
                     String mStockChange = mElementStockChange.text();
 
                     mStockSymbolList.add(mStockSymbol);
