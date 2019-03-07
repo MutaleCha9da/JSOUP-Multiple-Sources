@@ -29,10 +29,17 @@ public class DailyCommentaryActivity extends AppCompatActivity {
         textViewCommentary = (TextView)findViewById(R.id.tv_daily_commentary);
         textViewDate = (TextView)findViewById(R.id.tv_date_updated);
 
+        mProgressDialog = new ProgressDialog(DailyCommentaryActivity.this);
+        mProgressDialog.setTitle("Daily Commentary");
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.show();
+
         new Thread( new Runnable() {
             @Override
             public void run() {
                 try {
+
                     // marked for your use
                     Document doc = Jsoup.connect(url).get();
                     Element element1 = doc.select("div[class=tab-pane active]").first();
@@ -49,6 +56,8 @@ public class DailyCommentaryActivity extends AppCompatActivity {
 
                             textViewCommentary.setText(get_value);
                             textViewDate.setText(finalDate);
+
+                            mProgressDialog.dismiss();
                         }
                     });
                 } catch (Exception e) {
