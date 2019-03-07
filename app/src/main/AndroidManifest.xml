@@ -9,7 +9,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ListedCompaniesActivity"></activity>
+        <activity android:name=".BrokrageFirmsActivity" />
+        <activity android:name=".InvestmentForBeginnersActivity" />
+        <activity android:name=".NewsHeadlinesActivity" />
+        <activity android:name=".DailyCommentaryActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

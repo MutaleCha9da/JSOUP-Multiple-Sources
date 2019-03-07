@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> mStockPriceList = new ArrayList<>();
     private ArrayList<String> mStockChangeList = new ArrayList<>();
 
-    TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity
     private class Description extends AsyncTask<Void, Void, Void>
     {
         String desc;
-
         @Override
         protected void onPreExecute()
         {
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity
         {
             try {
                 //Connect to the website
-                String html;
                 Document mStockDocument = Jsoup.connect(url).get();
                 //Using Elements to get the Meta data
                 Elements mElementDataSize1 = mStockDocument.select("span[class=stoke_none]");
