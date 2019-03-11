@@ -1,4 +1,4 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,14 +1,14 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ListedCompaniesActivity extends AppCompatActivity {
+public class InvestmentForBeginnersActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listed_companies);
+        setContentView(R.layout.activity_investment_for_beginners);
     }
 }

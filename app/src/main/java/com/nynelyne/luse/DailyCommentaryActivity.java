@@ -1,10 +1,9 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;

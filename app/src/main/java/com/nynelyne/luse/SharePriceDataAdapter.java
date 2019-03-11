@@ -1,4 +1,4 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by Mutale Chanda on 23/02/2019.
  */
-public class StockDataAdapter extends RecyclerView.Adapter<StockDataAdapter.MyViewHolder>
+public class SharePriceDataAdapter extends RecyclerView.Adapter<SharePriceDataAdapter.MyViewHolder>
 {
     private ArrayList<String> mStockSymbolList = new ArrayList<>();
     private ArrayList<String> mStockPriceList = new ArrayList<>();
@@ -21,7 +21,7 @@ public class StockDataAdapter extends RecyclerView.Adapter<StockDataAdapter.MyVi
     private Activity mActivity;
     private int lastPosition = -1;
 
-    public StockDataAdapter(MainActivity activity,ArrayList<String> mStockSymbolList, ArrayList<String> mStockPriceList, ArrayList<String> mStockChangeList)
+    public SharePriceDataAdapter(MainActivity activity, ArrayList<String> mStockSymbolList, ArrayList<String> mStockPriceList, ArrayList<String> mStockChangeList)
     {
         this.mStockSymbolList = mStockSymbolList;
         this.mStockPriceList = mStockPriceList;

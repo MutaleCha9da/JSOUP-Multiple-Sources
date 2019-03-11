@@ -1,10 +1,9 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 

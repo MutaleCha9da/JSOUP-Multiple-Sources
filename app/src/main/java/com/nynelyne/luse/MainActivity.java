@@ -1,17 +1,16 @@
-package com.ads.agropay.luse;
+package com.nynelyne.luse;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -19,6 +18,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
+    Toolbar toolbar;
+
     private ProgressDialog mProgressDialog;
     private String url = "http://www.luse.co.zm/";
     private ArrayList<String> mStockSymbolList = new ArrayList<>();
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = (Toolbar)findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
 
         new Description().execute();
     }
@@ -62,9 +66,6 @@ public class MainActivity extends AppCompatActivity
 
                 for (int i = 0; i < mElementSize; i++)
                 {
-                    System.out.println(mElementDataSize2.size());
-                    System.out.println(mElementDataSize1.size());
-                    System.out.println(mElementSize);
                     Elements mElementStockSymbol = mStockDocument.select("span[class=stoke_none], span[class=stoke_up], span[class=stoke_down]").eq(i);
                     String mStockSymbol = mElementStockSymbol.text();
 
@@ -89,9 +90,9 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(Void results)
         {
             // Set description into TextView
-            RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.act_recyclerview);
+            RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.act_recyclerView);
 
-            StockDataAdapter mStockDataAdapter = new StockDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList);
+            SharePriceDataAdapter mStockDataAdapter = new SharePriceDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mStockDataAdapter);

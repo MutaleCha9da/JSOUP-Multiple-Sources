@@ -8,13 +8,21 @@
     android:background="@color/bg_color"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:id="@+id/toolBar"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
     <!--Show the date here-->
     <!--Add the table header-->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_recyclerview"
+        android:id="@+id/act_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolBar">
 
     </androidx.recyclerview.widget.RecyclerView>
 
