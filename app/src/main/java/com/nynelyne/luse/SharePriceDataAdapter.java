@@ -38,6 +38,7 @@ public class SharePriceDataAdapter extends RecyclerView.Adapter<SharePriceDataAd
             textView_stock_symbol = (TextView) itemView.findViewById(R.id.row_tv_stock_symbol);
             textView_stock_price = (TextView) itemView.findViewById(R.id.row_tv_stock_price);
             textView_stock_change = (TextView) itemView.findViewById(R.id.row_tv_stock_change);
+            //textView_stock_change.setBackgroundResource(R.drawable.ups);
         }
     }
 

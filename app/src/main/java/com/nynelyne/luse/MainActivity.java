@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         new Description().execute();
     }
 
-    private class Description extends AsyncTask<Void, Void, Void>
+    public class Description extends AsyncTask<Void, Void, Void>
     {
         String desc;
         @Override
