@@ -11,11 +11,12 @@ import android.os.Bundle;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static com.nynelyne.luse.R.*;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -26,13 +27,14 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> mStockSymbolList = new ArrayList<>();
     private ArrayList<String> mStockPriceList = new ArrayList<>();
     private ArrayList<String> mStockChangeList = new ArrayList<>();
+    private ArrayList<Integer> mPics = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
 
-        toolbar = (Toolbar)findViewById(R.id.toolBar);
+        toolbar = (Toolbar)findViewById(id.toolBar);
         setSupportActionBar(toolbar);
 
         new Description().execute();
@@ -76,9 +78,35 @@ public class MainActivity extends AppCompatActivity
                     Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change], span[class=stoke_none_up], span[class=stoke_none_down]").eq(i);
                     String mStockChange = mElementStockChange.text();
 
-                    mStockSymbolList.add(mStockSymbol);
-                    mStockPriceList.add(mStockPrice);
-                    mStockChangeList.add(mStockChange);
+                    if (mStockDocument.select("span.stoke_down").size() > 0)
+                    {
+                        mStockSymbolList.add(mStockSymbol);
+                        mStockPriceList.add(mStockPrice);
+                        mStockChangeList.add(mStockChange);
+                        mPics.add(drawable.downs);
+                        System.out.println("Down is here");
+                        break;
+                    }
+                    else if ((mStockDocument.select("span.stoke_up").size() > 0))
+                    {
+                        mStockSymbolList.add(mStockSymbol);
+                        mStockPriceList.add(mStockPrice);
+                        mStockChangeList.add(mStockChange);
+                        mPics.add(drawable.ups);
+                        System.out.println("Else if");
+                        break;
+                    }
+                    else
+                    {
+                        mStockSymbolList.add(mStockSymbol);
+                        mStockPriceList.add(mStockPrice);
+                        mStockChangeList.add(mStockChange);
+                        mPics.add(drawable.design_password_eye);
+                        System.out.println("Else if 2");
+                        break;
+                    }
+
+
                 }
             }catch (IOException e)
             {
@@ -91,9 +119,9 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(Void results)
         {
             // Set description into TextView
-            RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.act_recyclerView);
+            RecyclerView mRecyclerView = (RecyclerView)findViewById(id.act_recyclerView);
 
-            SharePriceDataAdapter mStockDataAdapter = new SharePriceDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList);
+            SharePriceDataAdapter mStockDataAdapter = new SharePriceDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList,mPics);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mStockDataAdapter);
