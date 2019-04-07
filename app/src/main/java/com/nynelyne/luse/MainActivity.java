@@ -13,6 +13,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity
             try {
                 //Connect to the website
                 Document mStockDocument = Jsoup.connect(url).get();
+
                 //Using Elements to get the Meta data
                 Elements mElementDataSize1 = mStockDocument.select("span[class=stoke_none]");
                 Elements mElementDataSize2 = mStockDocument.select("span[class=stoke_up]");
@@ -78,33 +80,36 @@ public class MainActivity extends AppCompatActivity
                     Elements mElementStockChange = mStockDocument.select("span[class=stoke_none_change], span[class=stoke_none_up], span[class=stoke_none_down]").eq(i);
                     String mStockChange = mElementStockChange.text();
 
-                    if (mStockDocument.select("span.stoke_down").size() > 0)
+                    if (mElementStockSymbol.attr("class").equals("stoke_down"))
                     {
-                        mStockSymbolList.add(mStockSymbol);
+                        /*mStockSymbolList.add(mStockSymbol);
                         mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);
+                        mStockChangeList.add(mStockChange);*/
                         mPics.add(drawable.downs);
                         System.out.println("Down is here");
-                        break;
+
                     }
-                    else if ((mStockDocument.select("span.stoke_up").size() > 0))
+                    else if (mElementStockSymbol.attr("class").equals("stoke_up"))
                     {
-                        mStockSymbolList.add(mStockSymbol);
+                       /* mStockSymbolList.add(mStockSymbol);
                         mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);
+                        mStockChangeList.add(mStockChange);*/
                         mPics.add(drawable.ups);
                         System.out.println("Else if");
-                        break;
+
                     }
                     else
                     {
-                        mStockSymbolList.add(mStockSymbol);
+                        /*mStockSymbolList.add(mStockSymbol);
                         mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);
+                        mStockChangeList.add(mStockChange);*/
                         mPics.add(drawable.design_password_eye);
                         System.out.println("Else if 2");
-                        break;
+
                     }
+                    mStockSymbolList.add(mStockSymbol);
+                    mStockPriceList.add(mStockPrice);
+                    mStockChangeList.add(mStockChange);
 
 
                 }
