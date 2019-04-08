@@ -6,4 +6,7 @@
     <string name="fa_icon_listed">\uf0cb</string>
     <string name="fa_icon_commentary">\uf651</string>
     <string name="fa_icon_investing">\uf5da</string>
+    <string name="fa_icon_stock_none">\uf362</string>
+    <string name="fa_icon_stock_up">\uf102</string>
+    <string name="fa_icon_stock_down">\uf103</string>
 </resources>

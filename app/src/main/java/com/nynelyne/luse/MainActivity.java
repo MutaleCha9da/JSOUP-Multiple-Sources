@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> mStockSymbolList = new ArrayList<>();
     private ArrayList<String> mStockPriceList = new ArrayList<>();
     private ArrayList<String> mStockChangeList = new ArrayList<>();
-    private ArrayList<Integer> mPics = new ArrayList<Integer>();
+    private ArrayList<String> mPics = new ArrayList<>();
+    private ArrayList<Integer> rowColor = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,30 +83,18 @@ public class MainActivity extends AppCompatActivity
 
                     if (mElementStockSymbol.attr("class").equals("stoke_down"))
                     {
-                        /*mStockSymbolList.add(mStockSymbol);
-                        mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);*/
-                        mPics.add(drawable.downs);
-                        System.out.println("Down is here");
-
+                        mPics.add(getResources().getString(string.fa_icon_stock_down));
+                        rowColor.add(3);
                     }
                     else if (mElementStockSymbol.attr("class").equals("stoke_up"))
                     {
-                       /* mStockSymbolList.add(mStockSymbol);
-                        mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);*/
-                        mPics.add(drawable.ups);
-                        System.out.println("Else if");
-
+                        mPics.add(getResources().getString(string.fa_icon_stock_up));
+                        rowColor.add(2);
                     }
                     else
                     {
-                        /*mStockSymbolList.add(mStockSymbol);
-                        mStockPriceList.add(mStockPrice);
-                        mStockChangeList.add(mStockChange);*/
-                        mPics.add(drawable.design_password_eye);
-                        System.out.println("Else if 2");
-
+                        mPics.add(getResources().getString(string.fa_icon_stock_none));
+                        rowColor.add(1);
                     }
                     mStockSymbolList.add(mStockSymbol);
                     mStockPriceList.add(mStockPrice);
@@ -126,7 +115,7 @@ public class MainActivity extends AppCompatActivity
             // Set description into TextView
             RecyclerView mRecyclerView = (RecyclerView)findViewById(id.act_recyclerView);
 
-            SharePriceDataAdapter mStockDataAdapter = new SharePriceDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList,mPics);
+            SharePriceDataAdapter mStockDataAdapter = new SharePriceDataAdapter(MainActivity.this, mStockSymbolList,mStockPriceList, mStockChangeList,mPics,rowColor);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mStockDataAdapter);
