@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.File;
@@ -22,6 +24,8 @@ import static com.nynelyne.luse.R.*;
 public class MainActivity extends AppCompatActivity
 {
     Toolbar toolbar;
+    TextView tv_lastUpdated;
+    String get_value;
 
     private ProgressDialog mProgressDialog;
     private String url = "http://www.luse.co.zm/";
@@ -39,7 +43,37 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar)findViewById(id.toolBar);
         setSupportActionBar(toolbar);
 
+        tv_lastUpdated = (TextView)findViewById(id.lastUpdated);
+        lastUpdated();
+
         new Description().execute();
+    }
+
+    private void lastUpdated() {
+        new Thread( new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // marked for your use
+                    Document doc = Jsoup.connect(url).get();
+                    Element element = doc.select("h6[class=td-font]").first();
+
+                    get_value = element.text();
+
+                    //Log.e("this log", get_value);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            tv_lastUpdated.setText(get_value);
+                        }
+                    });
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public class Description extends AsyncTask<Void, Void, Void>
@@ -102,6 +136,7 @@ public class MainActivity extends AppCompatActivity
 
 
                 }
+
             }catch (IOException e)
             {
                 e.printStackTrace();
