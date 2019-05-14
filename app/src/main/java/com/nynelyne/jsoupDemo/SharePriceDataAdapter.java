@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -59,9 +59,9 @@ public class SharePriceDataAdapter extends RecyclerView.Adapter<SharePriceDataAd
     public void onBindViewHolder(MyViewHolder holder, int position)
     {
         /**/
-        int tvColor = Color.WHITE;
+        int tvColor = Color.BLACK;
         if (rowColor.get(position).equals(1)){
-            tvColor = Color.WHITE;
+            tvColor = Color.BLACK;
         } else if (rowColor.get(position).equals(2)){
             tvColor = Color.GREEN;
         } else if (rowColor.get(position).equals(3)){

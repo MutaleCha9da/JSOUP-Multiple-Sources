@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,9 +21,6 @@ public class NewsHeadlinesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_headlines);
-
-        toolbar = (Toolbar)findViewById(R.id.toolBar);
-        setSupportActionBar(toolbar);
 
         viewPager = (ViewPager)findViewById(R.id.viewPager_id);
 

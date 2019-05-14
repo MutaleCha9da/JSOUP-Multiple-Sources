@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#AFB42B</color>
+    <color name="colorPrimaryDark">#9E9D24</color>
     <color name="colorAccent">#D81B60</color>
 
 
-    <color name="bg_color">#29304C</color>
-    <color name="fg_color">#4B5578</color>
+    <color name="bg_color">#eeeeee</color>
+    <color name="fg_color">#fafafa</color>
 
 
 

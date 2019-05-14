@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 

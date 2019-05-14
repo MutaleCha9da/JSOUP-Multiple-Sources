@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textSize="15sp"
-            android:textColor="@color/md_white_1000"
+            android:textColor="@color/md_black_1000"
             android:layout_weight="1"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

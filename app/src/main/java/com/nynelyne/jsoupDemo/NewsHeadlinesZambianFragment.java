@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;

@@ -8,18 +8,11 @@
     android:background="@color/bg_color"
     tools:context=".NewsHeadlinesActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:id="@+id/toolbar_id"
-        android:background="?attr/colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tabLayout_id"
-        android:layout_below="@+id/toolbar_id"
         android:background="?attr/colorPrimary"
         app:tabMode="fixed"
         app:tabGravity="fill"

@@ -1,14 +1,14 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class BrokrageFirmsActivity extends AppCompatActivity {
+public class ListedCompaniesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_brokrage_firms);
+        setContentView(R.layout.activity_listed_companies);
     }
 }

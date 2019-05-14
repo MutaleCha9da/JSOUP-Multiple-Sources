@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/app_bar_shares"
+        android:enabled="true"
+        android:icon="@drawable/ic_share_price"
+        android:title="Share Price" />
+
+    <item
+        android:id="@+id/app_bar_news"
+        android:enabled="true"
+        android:icon="@drawable/ic_news"
+        android:title="News"/>
+
+    <item
+        android:id="@+id/app_bar_Commentary"
+        android:enabled="true"
+        android:icon="@drawable/ic_commentary"
+        android:title="Commentary"/>
+
+    <item
+        android:id="@+id/app_bar_brokerage"
+        android:enabled="true"
+        android:icon="@drawable/ic_brokerage"
+        android:title="Brokerage"/>
+
+    <item
+        android:id="@+id/app_bar_howTo"
+        android:enabled="true"
+        android:icon="@drawable/ic_how_to"
+        android:title="How to"/>
+
+</menu>

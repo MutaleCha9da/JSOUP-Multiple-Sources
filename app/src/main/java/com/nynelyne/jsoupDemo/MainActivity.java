@@ -1,13 +1,14 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -15,17 +16,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.nynelyne.luse.R.*;
+import static com.nynelyne.jsoupDemo.R.*;
 
 public class MainActivity extends AppCompatActivity
 {
-    Toolbar toolbar;
-    TextView tv_lastUpdated;
-    String get_value;
+    private TextView tv_lastUpdated;
+    private String get_value;
 
     private ProgressDialog mProgressDialog;
     private String url = "http://www.luse.co.zm/";
@@ -35,13 +34,11 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> mPics = new ArrayList<>();
     private ArrayList<Integer> rowColor = new ArrayList<Integer>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
-
-        toolbar = (Toolbar)findViewById(id.toolBar);
-        setSupportActionBar(toolbar);
 
         tv_lastUpdated = (TextView)findViewById(id.lastUpdated);
         lastUpdated();

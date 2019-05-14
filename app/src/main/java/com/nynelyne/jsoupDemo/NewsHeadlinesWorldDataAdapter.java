@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by Mutale Chanda on 08/03/2019.
  */
-public class NewsHeadlinesAfricanDataAdapter extends RecyclerView.Adapter<NewsHeadlinesAfricanDataAdapter.MyViewHolder>
+public class NewsHeadlinesWorldDataAdapter extends RecyclerView.Adapter<NewsHeadlinesWorldDataAdapter.MyViewHolder>
 {
     private ArrayList<String> mNewsHeadlineList = new ArrayList<>();
     private Activity mActivity;
     private int lastPosition = -1;
 
-    public NewsHeadlinesAfricanDataAdapter(Context activity, ArrayList<String> mNewsHeadlineList)
+    public NewsHeadlinesWorldDataAdapter(Context activity, ArrayList<String> mNewsHeadlineList)
     {
         this.mNewsHeadlineList = mNewsHeadlineList;
     }

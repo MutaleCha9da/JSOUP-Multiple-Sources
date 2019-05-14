@@ -1,4 +1,4 @@
-package com.nynelyne.luse;
+package com.nynelyne.jsoupDemo;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -23,22 +23,22 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by Mutale Chanda on 09/03/2019.
  */
-public class NewsHeadlinesWorldFragment extends Fragment {
+public class NewsHeadlinesAfricanFragment extends Fragment {
 
     View view;
 
     private ProgressDialog mProgressDialog;
-    private String url = "https://www.bloomberg.com/markets";
+    private String url = "https://www.cnbc.com/africa/";
     private ArrayList<String> mNewsHeadlineList = new ArrayList<>();
 
-    public NewsHeadlinesWorldFragment() {
+    public NewsHeadlinesAfricanFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.item_world, container, false);
+        view = inflater.inflate(R.layout.item_african, container, false);
 
         new Description().execute();
 
@@ -52,7 +52,7 @@ public class NewsHeadlinesWorldFragment extends Fragment {
         protected void onPreExecute()
         {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(NewsHeadlinesWorldFragment.super.getContext());
+            mProgressDialog = new ProgressDialog(NewsHeadlinesAfricanFragment.super.getContext());
             mProgressDialog.setTitle("Business News Headlines");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
@@ -68,13 +68,13 @@ public class NewsHeadlinesWorldFragment extends Fragment {
                 //Connect to the website
                 Document mNewsHeadlineDocument = Jsoup.connect(url).get();
                 //Using Elements to get the Meta data
-                Elements mElementDataSize = mNewsHeadlineDocument.select("div.story-list-story__info__headline a");
+                Elements mElementDataSize = mNewsHeadlineDocument.select("div[class=headline]");
                 //locate the content attribute
                 int mElementSize = mElementDataSize.size();
 
                 for (int i = 0; i < mElementSize; i++)
                 {
-                    Elements mElementNewsHeadline = mNewsHeadlineDocument.select("div.story-list-story__info__headline a").eq(i);
+                    Elements mElementNewsHeadline = mNewsHeadlineDocument.select("div[class=headline]").eq(i);
                     String mNewsHeadline = mElementNewsHeadline.text();
 
                     mNewsHeadlineList.add(mNewsHeadline);
@@ -90,15 +90,16 @@ public class NewsHeadlinesWorldFragment extends Fragment {
         protected void onPostExecute(Void results)
         {
             // Set description into TextView
-            RecyclerView mRecyclerView = (RecyclerView)view.findViewById(R.id.world_recyclerView);
+            RecyclerView mRecyclerView = (RecyclerView)view.findViewById(R.id.african_recyclerView);
 
-            NewsHeadlinesWorldDataAdapter mNewsHeadlinesWorldDataAdapter = new NewsHeadlinesWorldDataAdapter(NewsHeadlinesWorldFragment.super.getContext(), mNewsHeadlineList);
+            NewsHeadlinesAfricanDataAdapter mNewsHeadlinesAfricanDataAdapter = new NewsHeadlinesAfricanDataAdapter(NewsHeadlinesAfricanFragment.super.getContext(), mNewsHeadlineList);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
             mRecyclerView.setLayoutManager(mLayoutManager);
-            mRecyclerView.setAdapter(mNewsHeadlinesWorldDataAdapter);
+            mRecyclerView.setAdapter(mNewsHeadlinesAfricanDataAdapter);
 
             mProgressDialog.dismiss();
         }
     }
+
 
 }
